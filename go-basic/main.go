@@ -12,9 +12,9 @@ func main() {
 	fmt.Println("start main")
 	// basics()
 
-	// fmt.Println("sum3Number(1, 2, 3) =", sum3Number(1, 2, 3)) // 6
-	// fmt.Println("sum3Number(1, 2, 3) =", sum3Number(1, 2, 3)) // 6
-	// fmt.Println("sum3Number(3, 5, 7) =", sum3Number(3, 5, 7)) // 15
+	// fmt.Println("sum3Number(1, 2, 3) =", sum3Number(1, 2, 3))     // 6
+	// fmt.Println("sum3Number(1, 2, 3) =", sum3Number(1, 2, 3))     // 6
+	// fmt.Println("sum3Number(3, 5, 7) =", sum3Number(3, 5, 7))     // 15
 	// fmt.Println("sum3Number(-10, 6, 4) =", sum3Number(-10, 6, 4)) // 0
 	// fmt.Println("=====")
 
@@ -23,15 +23,23 @@ func main() {
 	// fmt.Println("mean3Number(10, 20, 50) =", mean3Number(10, 20, 50)) // 26.667
 	// fmt.Println("=====")
 
-	// fmt.Println("mean(1, 2, 3) =", mean([]int{1, 2, 3}))                                    // 2.0
+	// fmt.Println("mean(1, 2, 3) =", mean([]int{1, 2, 3})) // 2.0
 	// fmt.Println("mean(10, 20, 30, 40, 50) =", mean([]int{10, 20, 30, 40, 50}))              // 30.0
-	// fmt.Println("mean(1,2,3,4,5,6,7,8,9,10) =", mean([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})) // 4.5
+	// fmt.Println("mean(1,2,3,4,5,6,7,8,9,10) =", mean([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})) // 5.5
 	// fmt.Println("=====")
 
-	// fmt.Println(`isPalindrome("katak") =`, isPalindrome("katak"))
-	// fmt.Println(`isPalindrome("golang") =`, isPalindrome("golang"))
+	// fmt.Println(`isPalindrome("katak") =`, isPalindrome("katak"))                             // true
+	// fmt.Println(`isPalindrome("golang") =`, isPalindrome("golang")) // false
 	// fmt.Println(`isPalindrome("1234567890987654321") =`, isPalindrome("1234567890987654321")) // true
 	// fmt.Println(`isPalindrome("1234567890887654321") =`, isPalindrome("1234567890887654321")) // false
+	// fmt.Println(`isPalindrome("araara") =`, isPalindrome("araara")) // true
+	// fmt.Println("=====")
+
+	// fmt.Println(`isPalindrome("katak") =`, isPalindromev2("katak"))                             // true
+	// fmt.Println(`isPalindrome("golang") =`, isPalindromev2("golang"))                           // false
+	// fmt.Println(`isPalindrome("1234567890987654321") =`, isPalindromev2("1234567890987654321")) // true
+	// fmt.Println(`isPalindrome("1234567890887654321") =`, isPalindromev2("1234567890887654321")) // false
+	// fmt.Println(`isPalindrome("araara") =`, isPalindromev2("araara"))                           // true
 	// fmt.Println("=====")
 
 	// ans, found := findDuplicateNumber([]int{1, 2, 3, 3, 4, 5})
@@ -127,25 +135,124 @@ func basics() {
 // sum3Number adalah jumlah dari 3 angka (basic function)
 func sum3Number(a int, b int, c int) int {
 	// write code here
-	return 0
+	// return 0
+
+	// cara pertama, langsung menjumlahkan karena tipe data sama
+	// sum := a + b + c
+	// return sum
+
+	// cara kedua
+	// deklarasi array
+	array := []int{a, b, c}
+
+	// panjang array
+	n := 3
+
+	// deklarasi variable sum
+	sum := 0
+
+	// for loop
+	for i := 0; i < n; i++ {
+		sum += (array[i])
+	}
+
+	return sum
 }
 
 // mean3Number adalah nilai rata-rata dari 3 angka (parameter & return berbeda)
 func mean3Number(a, b, c int) float64 {
 	// write code here
-	return 0
+	// // return 0
+
+	// cara pertama, langsung aritmatika
+	avg := ((a + b + c) / 3)
+	return (float64(avg))
+
+	// // cara kedua
+	// // deklarasi array
+	// array := []int{a, b, c}
+
+	// // set value static untuk panjang array
+	// n := 3
+
+	// // deklarasi value 0 untuk variable sum
+	// sum := 0
+
+	// // for loop
+	// for i := 0; i < n; i++ {
+
+	// 	// menjumlahkan value dari array ke variable sum
+	// 	sum += (array[i])
+	// }
+
+	// // deklarasi variable avg dan set value float
+	// avg := (float64(sum)) / (float64(n))
+
+	// return avg
 }
 
 // Cari nilai rata-rata data arr [1,2,3,4,5] = 3 (for-range)
 func mean(arr []int) float64 {
 	// write code here
-	return 0
+	// return 0
+
+	// mendapatkan panjang array
+	n := len(arr)
+
+	// deklarasi value 0 untuk variable sum
+	sum := 0
+
+	// for loop
+	for i := 0; i < n; i++ {
+
+		// menjumlahkan value array ke variable sum
+		sum += (arr[i])
+	}
+
+	// deklarasi variable dengan float dan operasi average
+	avg := (float64(sum)) / (float64(n))
+
+	return avg
 }
 
 // isPalindrome check wether str is palindrome or not. "katak" = true. (for-i, if)
 func isPalindrome(str string) bool {
 	// write code here
+	// return false
+
+	// convert str ke int32
+	r := []rune(str)
+
+	// menentukan letak index dan valuenya
+	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
+		r[i], r[j] = r[j], r[i]
+	}
+
+	// membandingkan input dan output setelah reverse
+	if string(str) == string(r) {
+		return true
+	}
 	return false
+}
+
+func isPalindromev2(str string) bool {
+	// write code here
+	// return false
+
+	if str == reverseWord(str) {
+		return true
+	}
+	return false
+}
+
+// function for isPalindromev2
+func reverseWord(str string) string {
+	r := []rune(str)
+
+	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
+		r[i], r[j] = r[j], r[i]
+	}
+	return string(r)
 }
 
 // which number is duplicate? [1,2,3,4,2,5] = 2 (map, for-range-map)

@@ -8,6 +8,6 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - '54333:5432'
+      - '54321:5432'
     volumes:
       - './psql:/var/lib/postgresql/data'
