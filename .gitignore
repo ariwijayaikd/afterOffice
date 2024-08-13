@@ -1,3 +1,4 @@
 /afteroffice-psql/psql/*
 .git
 .env
+/*/.env
