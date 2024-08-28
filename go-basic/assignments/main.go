@@ -144,6 +144,7 @@ type Card struct {
 
 func (d *Deck) New() {
 	d.cards = make([]Card, 0, 52)
+
 	for symbol := 0; symbol < 4; symbol++ {
 		for number := 1; number <= 13; number++ {
 			d.cards = append(d.cards, Card{symbol: symbol, number: number})
@@ -212,27 +213,27 @@ func tesDeck() {
 	deck := Deck{}
 	deck.New()
 
-	top5Cards := deck.PeekTop(3)
-	for _, c := range top5Cards {
-		fmt.Println(c.ToString())
-	}
+	// top5Cards := deck.PeekTop(3)
+	// for _, c := range top5Cards {
+	// 	fmt.Println(c.ToString())
+	// }
 	fmt.Println("---\n")
 
-	fmt.Println(deck.PeekCardAtIndex(12).ToString()) // King Spade
-	fmt.Println(deck.PeekCardAtIndex(13).ToString()) // Ace Heart
-	fmt.Println(deck.PeekCardAtIndex(14).ToString()) // 2 Heart
-	fmt.Println(deck.PeekCardAtIndex(15).ToString()) // 3 Heart
+	// fmt.Println(deck.PeekCardAtIndex(12).ToString()) // King Spade
+	// fmt.Println(deck.PeekCardAtIndex(13).ToString()) // Ace Heart
+	// fmt.Println(deck.PeekCardAtIndex(14).ToString()) // 2 Heart
+	// fmt.Println(deck.PeekCardAtIndex(15).ToString()) // 3 Heart
 	fmt.Println("---\n")
 
 	deck.Shuffle()
-	top5Cards = deck.PeekTop(10)
-	for _, c := range top5Cards {
-		fmt.Println(c.ToString())
-	}
+	// top5Cards = deck.PeekTop(10)
+	// for _, c := range top5Cards {
+	// 	fmt.Println(c.ToString())
+	// }
 
 	fmt.Println("---\n")
 	deck.New()
-	deck.Cut(5)
+	// deck.Cut(5)
 	bottomCards := deck.PeekBottom(10)
 	for _, c := range bottomCards {
 		fmt.Println(c.ToString())
