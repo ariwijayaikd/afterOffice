@@ -1,3 +1,6 @@
 [submodule "afterOffice-user-service-batch-2"]
 	path = afterOffice-user-service-batch-2
 	url = https://github.com/ariwijayaikd/afterOffice-user-service-batch-2
+[submodule "afterOffice-product-service-batch-2"]
+	path = afterOffice-product-service-batch-2
+	url = https://github.com/ariwijayaikd/afterOffice-product-service-batch-2.git
